@@ -1,170 +1,48 @@
-**Red-Tetris**
+# red-tetris
 
-A real-time multiplayer Tetris-battle project by tfreydie & Garivo.
+> Advanced project from 42 School. A full-stack, real-time multiplayer implementation of the classic Tetris game built as a Single Page Application (SPA).
 
-**Overview**
+![Status](https://img.shields.io/badge/Status-Completed-success)
+&emsp;
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff)
+![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=000)
+![Redux Toolkit](https://img.shields.io/badge/Redux_Toolkit-764ABC?logo=redux&logoColor=fff)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?logo=nodedotjs&logoColor=fff)
+![Express](https://img.shields.io/badge/Express.js-000000?logo=express&logoColor=white)
+![Socket.io](https://img.shields.io/badge/Socket.io-010101?logo=socketdotio&logoColor=fff)
+![Vitest](https://img.shields.io/badge/Vitest-6E9F18?logo=vitest&logoColor=fff)
 
-- **Purpose:** Multiplayer competitive Tetris implemented with a React + Vite client and a Node + TypeScript server using Socket.IO.
-- **Gameplay:** Real-time multiplayer matches, lobby management, and game state synchronization over WebSockets.
+## Introduction
 
-**Features**
+This project consists of an online **multiplayer Tetris web application** adhering to strict functional and technical constraints. Players can create or join lobbies, play in real-time against competitors, and experience classic or custom gameplay mechanics.
 
-- **Real-time multiplayer** via `socket.io`.
-- **Lobby system** for creating/joining games.
-- **Deterministic RNG** for fair piece generation (server-side).
-- **Client-side UI** written in React + Redux; built with Vite.
+The game uses WebSockets for low-latency synchronization between the server and all connected clients, backed by a comprehensive unit and component testing suite to ensure state integrity and UI stability.
 
-**Tech Stack**
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/f14c496f-aa86-4d9b-8359-ec1142f4d613" alt="Red Tetris Gameplay" width="600">
+</div>
 
-- **Client:** React, TypeScript, Vite, Redux, TailwindCSS, Socket.IO client.
-- **Server:** Node (TypeScript), Express, Socket.IO.
-- **Testing:** Vitest for both client and server.
+## Features
 
-**Prerequisites**
+#### Core Features
+- **Real-Time Multiplayer:** Instant synchronization of game states across multiple players using WebSockets.
+- **Lobby & Room System:** Create, join, and list active game lobbies with live player counts and host management.
+- **State & Data Management:** Built with Redux Toolkit for reliable data handling and real-time state synchronization.
+- **Enhanced Multiplayer Experience:** Features real-time line penalties sent to opponents, dynamic difficulty scaling, score tracking, and custom pieces.
+- **Touch & Keyboard Controls:** Gesture controls for mobile users along with full keyboard bindings for desktop players.
+- **Full Unit & Component Test Suite:** Built with **Vitest** and **React Testing Library** achieving high test coverage across components, custom hooks, and Redux slices.
 
-- Node.js (v18+ recommended)
-- npm (or yarn/pnpm)
+## My work
 
-**Quick Start (development)**
+My main tasks were focused on the frontend architecture, state management, and real-time interaction logic:
 
-1. Install dependencies at the repo root (this will also install client and server deps):
+- Designed and built responsive UI components using **React** and **Tailwind CSS**.
+- Implemented **Redux Toolkit** store and custom socket middleware to centralize data management and state synchronization across the application.
+- Wrote extensive unit and integration test suites using **Vitest** and **React Testing Library** to validate UI rendering, user actions, and edge cases.
 
-```bash
-npm install
-```
-
-2. Start client and server concurrently (root script):
-
-```bash
-npm run dev
-```
-
-This runs the client dev server (Vite) and the server dev process simultaneously. By default:
-
-- Client: http://localhost:5173
-- Server: http://localhost:3000
-
-You can also run each side separately:
-
-- Client only:
+## Install project
 
 ```bash
-npm run dev --prefix client
-```
-
-- Server only:
-
-```bash
-npm run dev --prefix server
-```
-
-The server accepts a `PORT` environment variable; e.g. to run on port 4000:
-
-```bash
-PORT=4000 npm run dev --prefix server
-```
-
-**Build & Production**
-
-- Build the client:
-
-```bash
-npm run build --prefix client
-```
-
-- Build the server (TypeScript -> JS):
-
-```bash
-npm run build --prefix server
-```
-
-- Start production server:
-
-```bash
-npm run prod
-```
-
-Note: The root `prod` script attempts to build both sides and run preview and server start concurrently.
-
-**Testing & Coverage**
-
-- Run all tests (client + server) from repo root:
-
-```bash
-npm test
-```
-
-- Run tests for a specific side:
-
-```bash
-npm test --prefix client
-npm test --prefix server
-```
-
-- Generate coverage reports:
-
-```bash
-npm run coverage
-```
-
-**Environment / Deployment notes**
-
-- The server sets CORS for the client origins: http://localhost:5173, http://localhost:4173 and https://tetris-battles.vercel.app (see [server/src/index.ts](server/src/index.ts#L1)).
-- When deploying, ensure the production client URL is added to the server's allowed origins or make CORS configuration environment-driven.
-
-**Project Structure (important files)**
-
-- `package.json` (root): repo-level scripts that orchestrate client & server.
-- [client/package.json](client/package.json): client scripts (`dev`, `build`, `preview`, `test`).
-- [server/package.json](server/package.json): server scripts (`dev`, `build`, `start`, `test`).
-- [client/src/main.tsx](client/src/main.tsx#L1): client entry.
-- [server/src/index.ts](server/src/index.ts#L1): server entry and Socket.IO setup.
-- `shared/`: shared types/constants used by both client and server.
-
-Top-level folders:
-
-- `client/` — React + Vite app.
-- `server/` — Node + TypeScript Socket.IO server.
-- `shared/` — common constants and types.
-
-**Running a local multiplayer match**
-
-1. Start server and client as above.
-2. Open multiple browser windows/tabs at the client URL and create/join a lobby. The server handles socket connections and game updates.
-
-**Contributing**
-
-- Please open issues or pull requests on the repository. When contributing, include:
-    - A clear description of the change
-    - Steps to reproduce (if bugfix)
-    - Test coverage for new behavior when possible
-
-**Acknowledgements**
-
-- Built by tfreydie & Garivo. Inspired by classic multiplayer Tetris variants.
-
-**License**
-
-```
-MIT License
-
-Copyright (c) 2026 Theo Freydiere Roumeysi - Gabriel Rivo
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
+git clone [https://github.com/GabrielRivo/red-tetris.git](https://github.com/GabrielRivo/red-tetris.git)
+cd red-tetris
