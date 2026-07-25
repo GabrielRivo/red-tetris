@@ -1,6 +1,6 @@
 # red-tetris
 
-> Advanced project from 42 School. A full-stack, real-time multiplayer implementation of the classic Tetris game built as a Single Page Application (SPA).
+> Advanced project from 42 School. A full-stack, real-time multiplayer Tetris Single Page Application (SPA), featuring a custom Redux Toolkit state architecture and full mobile touch support.
 
 ![Status](https://img.shields.io/badge/Status-Completed-success)
 &emsp;
