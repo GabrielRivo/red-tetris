@@ -41,8 +41,14 @@ My main tasks were focused on the frontend architecture, state management, and r
 - Implemented **Redux Toolkit** store and custom socket middleware to centralize data management and state synchronization across the application.
 - Wrote extensive unit and integration test suites using **Vitest** and **React Testing Library** to validate UI rendering, user actions, and edge cases.
 
-## Install project
+## Installation
 
 ```bash
-git clone [https://github.com/GabrielRivo/red-tetris.git](https://github.com/GabrielRivo/red-tetris.git)
+git clone https://github.com/GabrielRivo/red-tetris.git
 cd red-tetris
+```
+
+## Quick start
+
+```bash
+npm start
