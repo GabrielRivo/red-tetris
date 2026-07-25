@@ -13,6 +13,9 @@
 ![Socket.io](https://img.shields.io/badge/Socket.io-010101?logo=socketdotio&logoColor=fff)
 ![Vitest](https://img.shields.io/badge/Vitest-6E9F18?logo=vitest&logoColor=fff)
 
+### 🌐 Live Demo
+Play the game directly in your browser: **https://tetris-battles.vercel.app/**
+
 ## Introduction
 
 This project consists of an online **multiplayer Tetris web application** adhering to strict functional and technical constraints. Players can create or join lobbies, play in real-time against competitors, and experience classic or custom gameplay mechanics.
